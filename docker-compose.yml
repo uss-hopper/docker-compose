@@ -2,7 +2,7 @@ version: "3"
 
 services:
   backend:
-     build: ./php
+     build: ./backend
      depends_on:
        - mysql
      env_file:
