@@ -14,13 +14,15 @@ RUN composer install \
 # main build stage
 
 
-FROM richarvey/nginx-php-fpm
-RUN rm /var/www/html/index.php
-RUN mkdir /var/www/Classes
-RUN mkdir /var/www/lib
-RUN mkdir /var/www/vendor
-COPY Classes /var/www/Classes
-COPY lib /var/www/lib
-COPY --from=vendor /app/vendor/ /var/www/vendor/
-COPY public_html /var/www/html
+FROM gkephart/alpine-php-apache
+
+# copy vendor into the project from the prebuild stage
+COPY --from=vendor /app/vendor/ /app/vendor
+
+WORKDIR /var/www
+
+COPY ./Classes /app/Classes
+COPY ./lib /app/lib
+COPY public_html/ /app/public
+
 EXPOSE 80

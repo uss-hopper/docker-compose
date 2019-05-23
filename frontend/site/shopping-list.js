@@ -24,7 +24,7 @@ $(document).ready(() => {
 
 	$("#shoppingListForm").submit(event => {
 		let shoppingList = {shoppingListItem: $("#shoppingListItem").val(), shoppingListQuantity: parseInt($("#shoppingListQuantity").val())};
-		fetch("/apis/shopping-list/", {
+		fetch("apis/shopping-list/", {
 			method: "POST",
 			body: JSON.stringify(shoppingList),
 			headers: {

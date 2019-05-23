@@ -1,8 +1,8 @@
 <?php
 
-require_once(dirname(__DIR__) . "/vendor/autoload.php");
-require_once(dirname(__DIR__) . "/Classes/autoload.php");
-require_once(dirname(__DIR__) . "/lib/uuid.php");
+require_once(dirname(__DIR__, 3) . "/vendor/autoload.php");
+require_once(dirname(__DIR__, 3) . "/Classes/autoload.php");
+require_once(dirname(__DIR__, 3) . "/lib/uuid.php");
 
 use Deepdivedylan\DockerComposeLesson\ShoppingList;
 
@@ -17,10 +17,12 @@ $reply->status = 200;
 $reply->data = null;
 
 try {
-	// grab the mySQL connection
-	$dsn = "mysql:host=" . $_ENV["MYSQL_HOST"] . ";dbname=" . $_ENV["MYSQL_DATABASE"];
+//grab the environment variables from the host.
+	$env = getenv();
+	// grab the encrypted mySQL properties file and crete the DSN
+	$dsn = "mysql:host=" . $env["MYSQL_HOST"] . ";dbname=" . $env["MYSQL_DATABASE"];
 	$options = [PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"];
-	$pdo = new PDO($dsn, $_ENV["MYSQL_USER"], $_ENV["MYSQL_PASSWORD"], $options);
+	$pdo = new PDO($dsn, $env["MYSQL_USER"], $env["MYSQL_PASSWORD"], $options);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	//determine which HTTP method was used
