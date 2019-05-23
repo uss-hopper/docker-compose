@@ -1,5 +1,5 @@
 function reloadShoppingList() {
-	fetch("/api").then(reply => reply.json()).then(result => {
+	fetch("/apis/shopping-list/").then(reply => reply.json()).then(result => {
 		let output = "";
 		if(result.status !== 200) {
 			output = "<div class=\"alert alert-danger\"><strong>Oh snap!</strong> " + result.message + "</div>";
@@ -24,7 +24,7 @@ $(document).ready(() => {
 
 	$("#shoppingListForm").submit(event => {
 		let shoppingList = {shoppingListItem: $("#shoppingListItem").val(), shoppingListQuantity: parseInt($("#shoppingListQuantity").val())};
-		fetch("/api", {
+		fetch("/apis/shopping-list/", {
 			method: "POST",
 			body: JSON.stringify(shoppingList),
 			headers: {
