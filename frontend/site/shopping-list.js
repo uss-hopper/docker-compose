@@ -1,5 +1,5 @@
 function reloadShoppingList() {
-	fetch("/apis/shopping-list/").then(reply => reply.json()).then(result => {
+	fetch("apis/shopping-list/").then(reply => reply.json()).then(result => {
 		let output = "";
 		if(result.status !== 200) {
 			output = "<div class=\"alert alert-danger\"><strong>Oh snap!</strong> " + result.message + "</div>";
