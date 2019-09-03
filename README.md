@@ -4,9 +4,9 @@
 * Docker Compose
 * Docker Swarm
 * Amazon ECS
-* Kubernettes
+* Kubernetes
 ### Kubernettes vs Docker Compose
-* Kubernettes: large scale orchestration with multiple node(machines)
+* Kubernetes: large scale orchestration with multiple node(machines)
 * Docker-Compose: simple orchestration meant to run on one machine
 ## Keys to Docker Compose
 * Yaml Aint Markup Language 
