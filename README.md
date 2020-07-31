@@ -12,7 +12,7 @@
 * Yaml Aint Markup Language 
   * [Official Documentation](https://yaml.org/)
   * [Understanding Yaml By a Glance](https://docs.saltstack.com/en/latest/topics/yaml/)
-  * [Cheat Cheat](https://kapeli.com/cheat_sheets/YAML.docset/Contents/Resources/Documents/index)
+  * [Cheat Sheet](https://kapeli.com/cheat_sheets/YAML.docset/Contents/Resources/Documents/index)
 * Environmental Variables
 * Docker Networks
   * DNS
